@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  if auth
+    h1(style='padding-left:19px') doctape tag gallery
+    h4(style='padding-left:19px') your galleries
+    .row-fluid
+      ul.thumbnails(style='padding-left:19px')
+        each galdoc, i in galdocs
+          li.span4
+            .thumbnail
+              a(href='/gallery/#{i+1}')
+                div(style='display:block;width:300px;height:200px;background-image:url(/thumb/#{galdoc.frontImgID});background-position:30%,30%')
+              .caption
+                h3 #{galdoc.name}
+                p tags: 
+                  each tag in galdoc.tags
+                    | #{tag} 
+                p images: #{galdoc.length}
+  else
+    .hero-unit
+      h1 doctape tag gallery
+      p create beautiful(-ish) image galleries from your doctape tags
+      a.btn.btn-primary.btn-large(href='/auth/doctape') get started
