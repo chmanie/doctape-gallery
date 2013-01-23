@@ -11,6 +11,7 @@ db = new Couch('http://couch:5984', 'dtimage', 'couch')
 
 DOCTAPE_APP_KEY = 'your-doctape-app-key'
 DOCTAPE_APP_SECRET = 'your-doctape-app-secret'
+CALLBACK_URL = 'http://app.url/auth/doctape/callback'
 
 # helper functions
 
@@ -45,7 +46,7 @@ passport.use new DoctapeStrategy
     tokenURL: 'https://api.doctape.com/oauth2/token',
     clientID: DOCTAPE_APP_KEY,
     clientSecret: DOCTAPE_APP_SECRET,
-    callbackURL: 'http://app.url/auth/doctape/callback'
+    callbackURL: CALLBACK_URL
   ,(accessToken, refreshToken, profile, done) ->
     profile.accessToken = accessToken
     done(null, profile)
