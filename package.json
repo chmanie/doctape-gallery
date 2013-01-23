@@ -1,0 +1,16 @@
+{
+  "name": "doctape-gallery",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.0rc3",
+    "jade": "*",
+    "passport": "0.1.15",
+    "passport-doctape": "0.1.1",
+    "request": "2.12.0",
+    "node-couch": "0.2.0"
+  }
+}

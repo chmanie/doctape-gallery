@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1(style='padding-left:19px') #{galdocs._data.name}
+  h3(style='padding-left:19px') Tags: 
+    each galtag, i in galdocs._data.tags
+      if i == 0
+        | #{galtag}
+      else
+        | , #{galtag}
+  .modal.modal-gallery.hide.fade#modal-gallery(tabindex='-1')
+    .modal-header
+      a.close(data-dismiss='modal') &times;
+      h3.modal-title
+    .modal-body
+      .modal-image
+    .modal-footer
+      a.btn.btn-info.modal-prev
+        i.icon-arrow-left.icon-white
+        |  Previous
+      a.btn.btn-primary.modal-next Next
+        i.icon-arrow-right.icon-white
+      a.btn.btn-success.modal-play.modal-slideshow(data-slideshow='5000')
+        i.icon-play.icon-white
+      a.btn.modal-download(target='_blank')
+        i.icon-download
+        |  Download
+  #gallery(data-toggle='modal-gallery', data-target='#modal-gallery', data-selector='div.gallery-item', style='padding-left:19px')
+    each val, key in galdocs
+      if key != '_data'
+        .gallery-item(style='display:block;width:100px;height:100px;background-image:url(/thumb/#{key});background-position:30%,30%;float:left', data-href='/image/#{key}', title='#{val.name}')

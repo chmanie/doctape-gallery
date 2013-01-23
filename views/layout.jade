@@ -1,0 +1,42 @@
+doctype 5
+html
+  head
+    title dtimage
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/bootstrap-image-gallery.min.css')
+    script(type='text/javascript', src='/js/jquery-1.9.0.min.js')
+    script(type='text/javascript', src='/js/bootstrap.min.js')
+    script(type='text/javascript', src='/js/load-image.min.js')
+    script(type='text/javascript', src='/js/bootstrap-image-gallery.min.js')
+  body
+    .navbar
+      .navbar-inner
+        a.brand(href='/') doctape tag gallery
+        ul.nav
+          li
+            a(href='/') home
+          if auth
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown') galleries
+                b.caret
+              ul.dropdown-menu
+                each gal, i in galleries
+                  li
+                    a(href='/gallery/#{i+1}') #{gal.name}
+        ul.nav.pull-right
+          li.divider-vertical
+          if auth
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown') #{username} 
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href='/account') account
+                li.divider
+                li
+                  a(href='/logout') logout
+          else
+            li
+              a(href='/auth/doctape') login
+
+    block content

@@ -1,0 +1,47 @@
+extends layout
+
+block content
+  .row-fluid
+    .span10(style='padding:19px')
+        h1 hi, #{username}
+        p nice to see you
+  .row-fluid
+    .span12
+      .well
+        h3 account data
+        table.table.table-striped
+          tr
+            td free space
+            td #{freespace} GB
+  .row-fluid
+    .span12
+      .well
+        h3 your galleries
+        table.table.table-striped
+          tr
+            td #
+            td name
+            td tags
+            td action
+          - var count
+          each gal, i in galleries
+            tr(id='gal_#{i+1}')
+              td#number(data-id='#{i+1}') #{i+1}
+              td#name(data-id='#{i+1}') #{gal.name}
+              td#tags(data-id='#{i+1}')
+                each tag in gal.tags
+                  | #{tag} 
+              td#actions
+                i.icon-pencil.icon-white#edit(data-id='#{i+1}')
+                i.icon-remove.icon-white#remove(data-id='#{i+1}')
+            - count = i
+          tr
+            td#newnumber #{count+2}
+            td#newname
+              input(type='text', placeholder='name')
+            td#newtags
+              input(type='text', placeholder='tag1 tag2 tag3 ...')
+            td#newactions
+              i.icon-ok.icon-white#new(data-id='#{count+2}')
+
+  script(type='text/javascript', src='/js/app.js')
