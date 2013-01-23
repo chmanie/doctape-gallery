@@ -16,8 +16,8 @@ in app.js / app.coffee change
     DOCTAPE_APP_SECRET = 'your-doctape-app-secret';
     CALLBACK_URL = 'http://app.url/auth/doctape/callback';
     DB_URL = 'http://couch:5984';
-    DB_DATABASE = 'dtgallery';
-    DB_DESIGN = 'couch';
+    DB_DATABASE = 'database';
+    DB_DESIGN = 'designdoc';
 
 to your corresponding values. then visit your app.url and log in with your doctape credentials.
 
