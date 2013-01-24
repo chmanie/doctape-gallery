@@ -19,14 +19,14 @@ in app.js / app.coffee change
     DB_DATABASE = 'database';
     DB_DESIGN = 'designdoc';
 
-to your corresponding values. then visit your app.url and log in with your doctape credentials.
-
-your couchdb _design document should contain the following simple view:
+to your corresponding values. your couchdb _design document should contain the following simple view:
 
     {
         "galleries_by_username": {
             "map": "function(doc) { emit(doc._id, doc.galleries) }"
         }
     }
-        
+
+then visit your app.url and log in with your doctape credentials.  
+
 i think that should do it. happy gallerying :)
