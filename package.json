@@ -10,7 +10,7 @@
     "jade": "*",
     "passport": "0.1.15",
     "passport-doctape": "0.1.1",
-    "request": "2.12.0",
+    "request": "2.88.2",
     "node-couch": "0.2.0"
   }
 }
